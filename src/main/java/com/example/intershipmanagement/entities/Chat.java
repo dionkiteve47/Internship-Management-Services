@@ -21,12 +21,13 @@ public class Chat implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    private  String titre;
     private  Boolean isCrypted;
     @Enumerated
     private TypeChat type;
-
-    @OneToMany
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
     Set<Message> messages;
+
     @ManyToMany(mappedBy="chats", cascade = CascadeType.ALL)
     private Set<User> users;
 
