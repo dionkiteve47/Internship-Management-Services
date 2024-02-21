@@ -1,15 +1,12 @@
-package com.example.intershipmanagement.entities;
+package com.example.internshipmanagement.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.io.Serial;
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -20,18 +17,18 @@ import java.util.Set;
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Support  implements Serializable {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+
+     @Id
+     @GeneratedValue (strategy = GenerationType.IDENTITY)
      Long id;
 
-     String Titre;
-     LocalDate creationDatesupport;
-     String Description;
+     String titre;
+     String description;
+     LocalDate creationDateSupport;
 
 
-    @JsonIgnore
-    @ToString.Exclude
     @ManyToOne
-    Formation formationsupport;
+    private Formation formationsupport;
+
 
 }

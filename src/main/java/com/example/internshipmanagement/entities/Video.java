@@ -1,4 +1,4 @@
-package com.example.intershipmanagement.entities;
+package com.example.internshipmanagement.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -6,9 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -19,20 +17,22 @@ import java.util.Set;
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Video  implements Serializable {
+
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
-    private String Titre;
-    private LocalDate creationDateVideo;
-    private String Description;
-    private Integer Longueur;
-    private Integer Likes;
+    String titre;
+    String description;
+    Double longueur;
+    Integer ordre;
+    Integer likes=0;
+    LocalDate creationDateVideo;
 
 
-    @JsonIgnore
-    @ToString.Exclude
     @ManyToOne
-    Formation formationvideo;
+    private Formation formationvideo;
+
+
 
 }

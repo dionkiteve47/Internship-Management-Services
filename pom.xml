@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>IntershipManagement</artifactId>
+	<artifactId>InternshipManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>IntershipManagement</name>
-	<description>IntershipManagement</description>
+	<name>InternshipManagement</name>
+	<description>InternshipManagement</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -40,6 +40,46 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.3</version> <!-- or the latest version available -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.3</version> <!-- or the latest version available -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- ADDED DEPENDENCY -->
+
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>3.4.12</version> <!-- Use the appropriate version -->
+		</dependency>
+
+
+
+		<!-- swagger -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.7</version> <!-- Use the latest version available -->
 		</dependency>
 	</dependencies>
 	<build>
