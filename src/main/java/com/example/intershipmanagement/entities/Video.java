@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -19,19 +18,21 @@ import java.util.Set;
 @Builder
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Support  implements Serializable {
+public class Video  implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-     Long id;
+    private Long id;
 
-     String Titre;
-     LocalDate creationDatesupport;
-     String Description;
+    private String Titre;
+    private LocalDate creationDateVideo;
+    private String Description;
+    private Integer Longueur;
+    private Integer Likes;
 
 
     @JsonIgnore
     @ToString.Exclude
     @ManyToOne
-    Formation formationsupport;
+    Formation formationvideo;
 
 }
