@@ -27,7 +27,7 @@ public class Video  implements Serializable {
     private LocalDate creationDateVideo;
     private String Description;
     private Integer Longueur;
-    private Integer Likes;
+    private Integer Likes=0;
 
 
     @JsonIgnore
