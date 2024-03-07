@@ -1,5 +1,7 @@
     package com.example.intershipmanagement.entities;
 
+    import com.fasterxml.jackson.annotation.JsonBackReference;
+    import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
     import jakarta.persistence.*;
     import lombok.*;
     import lombok.experimental.FieldDefaults;
@@ -19,15 +21,18 @@
     public class Message implements Serializable {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String contenu;
         private Date sent_Date;
         private Boolean isSeen;
         private Date seen_Date;
         private Boolean isLiked;
+
         @ManyToOne
-        Chat chat;
+        @JoinColumn(name = "chat_id", referencedColumnName = "id")
+        @JsonIgnoreProperties("messages")
+        private Chat chat;
 
 
     }

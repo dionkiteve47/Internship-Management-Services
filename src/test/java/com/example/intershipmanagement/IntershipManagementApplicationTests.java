@@ -8,6 +8,7 @@ class IntershipManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

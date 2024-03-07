@@ -16,6 +16,8 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MessageService implements IMessageService{
     MessageRepository messageRepository;
+
+
     @Override
     public Message addMessage(Message message) {
         return messageRepository.save(message);

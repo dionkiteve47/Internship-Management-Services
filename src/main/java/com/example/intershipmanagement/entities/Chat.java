@@ -1,38 +1,48 @@
-package com.example.intershipmanagement.entities;
+    package com.example.intershipmanagement.entities;
 
 
-import com.example.intershipmanagement.entities.enumerations.TypeChat;
-import jakarta.persistence.*;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+    import com.example.intershipmanagement.entities.enumerations.TypeChat;
+    import com.fasterxml.jackson.annotation.JsonIgnore;
+    import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+    import com.fasterxml.jackson.annotation.JsonManagedReference;
+    import jakarta.persistence.*;
+    import lombok.*;
+    import lombok.experimental.FieldDefaults;
+    import org.springframework.web.multipart.MultipartFile;
 
-import java.io.Serializable;
-import java.util.Set;
+    import java.io.Serializable;
+    import java.util.Set;
 
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Chat implements Serializable {
-    @Id
-    @GeneratedValue
-    private Long id;
-    private  String titre;
-    private  Boolean isCrypted;
-    @Enumerated
-    private TypeChat type;
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
-    Set<Message> messages;
+    @Entity
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Builder
+    @ToString
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    public class Chat implements Serializable {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        private  String titre;
+        private  Boolean isCrypted;
+        @Enumerated
+        private TypeChat type;
 
-    @ManyToMany(mappedBy="chats", cascade = CascadeType.ALL)
-    private Set<User> users;
+        @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        @JsonIgnoreProperties("chat")
+        @ToString.Exclude
+        Set<Message> messages;
+
+        @ManyToMany(mappedBy="chats", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+        @JsonIgnore()
+        @ToString.Exclude
+        private Set<User> users;
 
 
 
 
 
-}
+
+    }
