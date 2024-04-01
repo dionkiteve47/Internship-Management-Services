@@ -13,5 +13,7 @@ public interface IUserService {
     void deleteUser(long idUser);
     User updateUser(User user);
     List<User> searchUsers(String searchText);
+    boolean getUserOnlineStatus(Long userId);
+    void updateUserOnlineStatus(Long userId, boolean online);
 
 }

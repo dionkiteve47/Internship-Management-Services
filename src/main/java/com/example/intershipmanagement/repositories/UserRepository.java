@@ -11,5 +11,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     List<User> findByNomUserContainingOrPrenomUserContaining(String nom, String prenom);
 
+    User findByNomUser(String nomUser);
+
 
 }

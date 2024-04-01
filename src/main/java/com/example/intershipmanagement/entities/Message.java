@@ -24,6 +24,8 @@
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String contenu;
+        private String imagePath;
+        private String filePath;
         private Date sent_Date;
         private Boolean isSeen;
         private Date seen_Date;
@@ -35,4 +37,9 @@
         private Chat chat;
 
 
+        private String sender;
+
+
+
     }
+

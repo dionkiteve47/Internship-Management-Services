@@ -17,7 +17,6 @@ import java.util.List;
 public class MessageService implements IMessageService{
     MessageRepository messageRepository;
 
-
     @Override
     public Message addMessage(Message message) {
         return messageRepository.save(message);
@@ -38,6 +37,7 @@ public class MessageService implements IMessageService{
         messageRepository.deleteById(idMessage);
 
     }
+
 
     @Override
     public Message updateMessage(Message idMessage) {

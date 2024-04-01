@@ -48,14 +48,16 @@ public class ChatService implements IChatService {
     }
 
 
+    // ADD MESSAGE
     public Chat addMessage(Long chatId, Message message) {
         Chat chat = chatRepository.findById(chatId)
                 .orElseThrow(() -> new IllegalArgumentException("Chat not found with id: " + chatId));
         chat.getMessages().add(message);
         message.setChat(chat);
         return chatRepository.save(chat);
-    }
 
+    }
+   // CREATE CHAT + ADD USER
     public Chat createChatWithUser(User user) {
         Chat newChat = new Chat();
         newChat.setTitre("Chat with " + user.getNomUser());
