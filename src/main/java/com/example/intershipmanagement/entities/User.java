@@ -20,16 +20,21 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
+
     private boolean online;
 
     private String nomUser;
 
     private String prenomUser;
 
-    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    private String password;
+
+    private String email;
+    @ManyToMany(fetch = FetchType.LAZY)
     @JsonIgnore()
     private Set<Chat> chats;
 
+    private long offlineTimeInSeconds;
 
 
 

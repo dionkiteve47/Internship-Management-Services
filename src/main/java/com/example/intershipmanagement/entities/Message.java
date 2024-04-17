@@ -1,11 +1,9 @@
     package com.example.intershipmanagement.entities;
 
-    import com.fasterxml.jackson.annotation.JsonBackReference;
     import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
     import jakarta.persistence.*;
     import lombok.*;
     import lombok.experimental.FieldDefaults;
-    import org.springframework.format.annotation.DateTimeFormat;
 
     import java.io.Serializable;
     import java.util.Date;
@@ -31,13 +29,14 @@
         private Date seen_Date;
         private Boolean isLiked;
 
+        private Date date;
+
         @ManyToOne
         @JoinColumn(name = "chat_id", referencedColumnName = "id")
         @JsonIgnoreProperties("messages")
         private Chat chat;
 
-
-        private String sender;
+        private Long sender_id;
 
 
 

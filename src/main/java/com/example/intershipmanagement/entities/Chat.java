@@ -33,9 +33,10 @@
         @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         @JsonIgnoreProperties("chat")
         @ToString.Exclude
+        @OrderBy("date ASC")
         Set<Message> messages;
 
-        @ManyToMany(mappedBy="chats", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+        @ManyToMany(mappedBy="chats",fetch = FetchType.LAZY)
         @JsonIgnore()
         @ToString.Exclude
         private Set<User> users;

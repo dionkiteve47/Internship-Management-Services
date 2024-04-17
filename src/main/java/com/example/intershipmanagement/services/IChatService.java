@@ -14,8 +14,7 @@ public interface IChatService {
     void deleteChat(long idChat);
     Chat updateChat(Chat Chat);
     public Chat addMessage(Long chatId, Message message);
-
-    public Chat createChatWithUser(User user);
+    public Chat createChatWithUser(User user, String title);
 
 }
 

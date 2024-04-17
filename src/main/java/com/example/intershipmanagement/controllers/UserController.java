@@ -6,9 +6,7 @@ import com.example.intershipmanagement.entities.User;
 import com.example.intershipmanagement.services.IUserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,10 +15,7 @@ import java.util.List;
 @RequestMapping("api/user")
 public class UserController {
 
-
      private IUserService userService;
-
-
 
     @PostMapping("add")
     public User addingUser(@RequestBody User user){
@@ -61,15 +56,5 @@ public class UserController {
     }
 
 
-    @GetMapping("/{id}/online")
-    public ResponseEntity<Boolean> getUserOnlineStatus(@PathVariable Long id) {
-        boolean online = userService.getUserOnlineStatus(id);
-        return ResponseEntity.ok(online);
-    }
-    @PutMapping("/{id}/online")
-    public ResponseEntity<Void> updateUserOnlineStatus(@PathVariable Long id, @RequestParam boolean online) {
-        userService.updateUserOnlineStatus(id, online);
-        return ResponseEntity.noContent().build();
-    }
 
 }
