@@ -24,7 +24,7 @@ public class UserService implements IUserService {
 
     //SEARCH USER
     public List<User> searchUsers(String searchText) {
-        return userRepository.findByNomUserContainingOrPrenomUserContaining(searchText, searchText);
+        return userRepository.findByFirstnameContainingOrLastnameContaining(searchText, searchText);
     }
 
     @Override

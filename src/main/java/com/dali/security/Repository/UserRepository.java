@@ -33,9 +33,9 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     void enableUser(String email);
 
     // Salim work :
-    List<User> findByNomUserContainingOrPrenomUserContaining(String nom, String prenom);
+    List<User> findByFirstnameContainingOrLastnameContaining(String nom, String prenom);
     boolean existsByEmail(String email);
-    User findByNomUser(String nomUser);
+    User findByFirstname(String nomUser);
 
     List<User> findByOnlineFalse();
     //
